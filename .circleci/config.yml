@@ -27,10 +27,10 @@ jobs:
               sleep 1
             done
             echo Failed waiting for MySQL && exit 1
-#      - run:
-#        name: Install MySQL CLI; Import dummy data; run an example query
-#        command: |
-#          sudo apt-get install default-mysql-client
+      - run:
+        name: Install MySQL CLI
+        command: |
+          sudo apt-get install default-mysql-client
       - run:
           name: Install WP CLI
           command: |
