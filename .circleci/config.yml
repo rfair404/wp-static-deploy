@@ -37,7 +37,7 @@ jobs:
             curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
       - run:
           name: Composer install
-          command: composer install
+          command: composer update
       - run:
           name: Install WordPress
           command: bash config/setup.sh
