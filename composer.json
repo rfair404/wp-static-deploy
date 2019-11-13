@@ -1,31 +1,29 @@
 {
-  "name": "johnpbloch/wordpress-core",
-  "description": "WordPress is open source software you can use to create a beautiful website, blog, or app.",
-  "keywords": [
-    "wordpress",
-    "blog",
-    "cms"
-  ],
-  "type": "wordpress-core",
-  "homepage": "http://wordpress.org/",
-  "license": "GPL-2.0-or-later",
-  "authors": [
-    {
-      "name": "WordPress Community",
-      "homepage": "http://wordpress.org/about/"
+    "name": "rfair404/wp-static-deploy",
+    "description": "A POC showing deploying a 100% static / headless WordPress based website",
+    "type": "project",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Russell Fair",
+            "email": "rfair404@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        }
+    ],
+    "require": {
+        "johnpbloch/wordpress-core-installer": "1.0.2",
+        "johnpbloch/wordpress": "5.3",
+        "wpackagist-plugin/static-html-output-plugin": "6.6.6"
+    },
+    "extra": {
+        "wordpress-install-dir": "wordpress",
+        "installer-paths": {
+            "wordpress/wp-content/plugins/{$name}/": ["type:wordpress-plugin"]
+        }
     }
-  ],
-  "support": {
-    "issues": "http://core.trac.wordpress.org/",
-    "forum": "http://wordpress.org/support/",
-    "wiki": "http://codex.wordpress.org/",
-    "irc": "irc://irc.freenode.net/wordpress",
-    "source": "http://core.trac.wordpress.org/browser"
-  },
-  "require": {
-    "php": ">=5.6.20"
-  },
-  "provide": {
-    "wordpress/core-implementation": "5.3.0"
-  }
 }

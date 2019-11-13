@@ -1,9 +1,7 @@
 # WordPress specific
-wp-*
-xmlrpc.php
-index.php
-license.txt
-readme.html
+wordpress
 
 # Composer files
 vendor
+
+.env

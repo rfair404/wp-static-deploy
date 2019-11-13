@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fc5ac0de3a88d9f5b36bd105622c46d6",
+    "content-hash": "b4ba8cbdd422477fe866a26b8c6bc33b",
     "packages": [
         {
             "name": "composer/installers",
@@ -273,17 +273,32 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/static-html-output-plugin/"
+        },
+        {
+            "name": "wpackagist-plugin/wp-markdown",
+            "version": "1.6.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wp-markdown/",
+                "reference": "tags/1.6.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-markdown.1.6.1.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wp-markdown/"
         }
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": [],
-    "platform-overrides": {
-        "php": "7.3"
-    }
+    "platform-dev": []
 }
