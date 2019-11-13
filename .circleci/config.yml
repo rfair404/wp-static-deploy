@@ -9,46 +9,36 @@ jobs:
       # Specify the version you desire here
       - image: circleci/php:7.3-node-browsers
       - image: circleci/mariadb:10.3-ram
-        environment:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: test
-          MYSQL_USER: user
-          MYSQL_PASSWORD: password
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # Using the RAM variation mitigates I/O contention
-      # for database intensive operations.
-      # - image: circleci/mysql:5.7-ram
-      #
-      # - image: redis:2.8.19
+#        environment:
+#          MYSQL_ROOT_PASSWORD: root
+#          MYSQL_DATABASE: test
+#          MYSQL_USER: user
+#          MYSQL_PASSWORD: password
 
     steps:
       - checkout
+#      - run:
+#        name: Waiting for MySQL to be ready
+#        command: |
+#          for i in `seq 1 10`;
+#          do
+#            nc -z 127.0.0.1 3306 && echo Success && exit 0
+#            echo -n .
+#            sleep 1
+#          done
+#          echo Failed waiting for MySQL && exit 1
+#      - run:
+#        name: Install MySQL CLI; Import dummy data; run an example query
+#        command: |
+#          sudo apt-get install default-mysql-client
       - run:
-        # Our primary container isn't MYSQL so run a sleep command until it's ready.
-        name: Waiting for MySQL to be ready
-        command: |
-          for i in `seq 1 10`;
-          do
-            nc -z 127.0.0.1 3306 && echo Success && exit 0
-            echo -n .
-            sleep 1
-          done
-          echo Failed waiting for MySQL && exit 1
-      - run:
-        name: Install MySQL CLI; Import dummy data; run an example query
-        command: |
-          sudo apt-get install default-mysql-client
-      - run:
-          name: "Install WP CLI"
+          name: Install WP CLI
           command: |
             curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
             which wp
       - run:
-          name: "Composer install"
+          name: Composer install
           command: composer install
       -run:
-        name: "Install WordPress"
+        name: Install WordPress
         command: bash config/setup.sh
