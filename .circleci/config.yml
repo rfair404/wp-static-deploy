@@ -9,11 +9,11 @@ jobs:
       # Specify the version you desire here
       - image: circleci/php:7.3-node-browsers
       - image: circleci/mariadb:10.3-ram
-#        environment:
-#          MYSQL_ROOT_PASSWORD: root
-#          MYSQL_DATABASE: test
-#          MYSQL_USER: user
-#          MYSQL_PASSWORD: password
+        environment:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: test
+          MYSQL_USER: user
+          MYSQL_PASSWORD: password
 
     steps:
       - checkout
