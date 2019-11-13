@@ -19,4 +19,4 @@ jobs:
       # - image: redis:2.8.19
 
     steps:
-     run: exit 0
+      - run: exit 0
