@@ -40,5 +40,5 @@ jobs:
           name: Composer install
           command: composer install
       - run:
-        name: Install WordPress
-        command: bash config/setup.sh
+          name: Install WordPress
+          command: bash config/setup.sh
