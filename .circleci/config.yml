@@ -35,7 +35,6 @@ jobs:
           name: Install WP CLI
           command: |
             curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-            which wp
       - run:
           name: Composer install
           command: composer install
