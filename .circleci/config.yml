@@ -30,7 +30,7 @@ jobs:
       - run:
           name: Install MySQL CLI
           command: |
-            sudo apt-get install default-mysql-client
+            sudo apt-get install mysql-client gd sockets mysqli exif
       - run:
           name: Install WP CLI
           command: |
