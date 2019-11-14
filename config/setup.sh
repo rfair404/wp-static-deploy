@@ -29,6 +29,8 @@ create_homepage() {
 
 configure_wp2static() {
 #    wp option update wp2static-options $(wp eval-file ../config/wp2static.php --allow-root) --allow-root
+    wp wp2static options set debug_mode 1 --allow-root
+    wp wp2static options set detection_leftl homepage --allow-root
     wp wp2static options set targetFolder /var/www/html/static-cli --allow-root
     wp wp2static options set selected_deployment_option github --allow-root
     wp wp2static options set baseUrl https://rfair404.github.io/wp-static-deploy --allow-root
