@@ -39,7 +39,11 @@ jobs:
             sudo mv wp-cli.phar /usr/local/bin/wp
       - run:
           name: Composer install
-          command: composer update
+          command: |
+            composer update
+            ls wordpress
       - run:
           name: Install WordPress
-          command: bash config/setup.sh
+          command: |
+            cd wordpress
+            bash config/setup.sh
