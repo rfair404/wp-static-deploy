@@ -47,5 +47,7 @@ jobs:
               ls -la
       - run:
           name: Install WordPress
-          command: bash ../config/setup.sh
+          command: |
+              cd wordpress
+              bash ../config/setup.sh
 
