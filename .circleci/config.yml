@@ -8,7 +8,7 @@ jobs:
     docker:
       # Specify the version you desire here
       - image: circleci/php:7.3-node-browsers
-      - image: circleci/mysql:5.7-ram
+      - image: circleci/mariadb:latest
         environment:
           MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: test
@@ -30,9 +30,13 @@ jobs:
       - run:
           name: Install MySQL CLI
           command: |
-            sudo apt-get update
-            sudo apt-get install default-mysql-client
-            sudo -E docker-php-ext-install pdo pdo_mysql
+          echo "memory_limit = 512M" | sudo -E tee --append /usr/local/etc/php/conf.d/docker-php-memory.ini
+          sudo apt install -y mariadb-client wget curl
+          sudo docker-php-ext-install mysqli
+      - run:
+          name: Create DB for WordPress
+          command: |
+            mysql -u root -proot -h 127.0.0.1 -e "create database wordpress"
       - run:
           name: Install WP CLI
           command: |
@@ -41,7 +45,7 @@ jobs:
             sudo mv wp-cli.phar /usr/local/bin/wp
       - run:
           name: Composer install
-          command: composer update
+          command: composer install --quiet
       - run:
           name: Check WordPress
           command: |
