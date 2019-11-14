@@ -31,7 +31,8 @@ jobs:
           name: Install MySQL CLI
           command: |
             sudo apt-get update
-            sudo apt-get install default-mysql-client default-mysqli
+            sudo apt-get install default-mysql-client
+            sudo -E docker-php-ext-install pdo pdo_mysql
       - run:
           name: Install WP CLI
           command: |
