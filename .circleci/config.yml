@@ -41,5 +41,3 @@ jobs:
       - run:
           name: Install WordPress
           command: bash config/setup.sh
-      - run:
-          name: Test WP Content

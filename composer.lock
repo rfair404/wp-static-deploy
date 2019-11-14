@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b4ba8cbdd422477fe866a26b8c6bc33b",
+    "content-hash": "9086f917b31ff8d4e32f2075657a9399",
     "packages": [
         {
             "name": "composer/installers",
@@ -275,22 +275,22 @@
             "homepage": "https://wordpress.org/plugins/static-html-output-plugin/"
         },
         {
-            "name": "wpackagist-plugin/wp-markdown",
-            "version": "1.6.1",
+            "name": "wpackagist-plugin/wp-githuber-md",
+            "version": "1.11.9",
             "source": {
                 "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/wp-markdown/",
-                "reference": "tags/1.6.1"
+                "url": "https://plugins.svn.wordpress.org/wp-githuber-md/",
+                "reference": "tags/1.11.9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-markdown.1.6.1.zip"
+                "url": "https://downloads.wordpress.org/plugin/wp-githuber-md.1.11.9.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/wp-markdown/"
+            "homepage": "https://wordpress.org/plugins/wp-githuber-md/"
         }
     ],
     "packages-dev": [],

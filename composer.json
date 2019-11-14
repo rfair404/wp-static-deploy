@@ -18,7 +18,8 @@
     "require": {
         "johnpbloch/wordpress-core-installer": "1.0.2",
         "johnpbloch/wordpress": "5.3",
-        "wpackagist-plugin/static-html-output-plugin": "6.6.6"
+        "wpackagist-plugin/static-html-output-plugin": "6.6.6",
+        "wpackagist-plugin/wp-githuber-md": "1.11.9"
     },
     "extra": {
         "wordpress-install-dir": "wordpress",
