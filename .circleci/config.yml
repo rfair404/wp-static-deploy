@@ -1,0 +1,59 @@
+# PHP CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-php/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      # Specify the version you desire here
+      - image: circleci/php:7.3-node-browsers
+      - image: circleci/mariadb:latest
+        environment:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: test
+          MYSQL_USER: user
+          MYSQL_PASSWORD: password
+
+    steps:
+      - checkout
+      - run:
+          name: Waiting for MySQL to be ready
+          command: |
+            for i in `seq 1 10`;
+            do
+              nc -z 127.0.0.1 3306 && echo Success && exit 0
+              echo -n .
+              sleep 1
+            done
+            echo Failed waiting for MySQL && exit 1
+      - run:
+          name: Install MySQL CLI
+          command: |
+            echo "memory_limit = 512M" | sudo -E tee --append /usr/local/etc/php/conf.d/docker-php-memory.ini
+            sudo apt install -y mariadb-client wget curl
+            sudo docker-php-ext-install mysqli
+      - run:
+          name: Create DB for WordPress
+          command: |
+            mysql -u root -proot -h 127.0.0.1 -e "create database wordpress"
+      - run:
+          name: Install WP CLI
+          command: |
+            curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+            chmod +x wp-cli.phar
+            sudo mv wp-cli.phar /usr/local/bin/wp
+      - run:
+          name: Composer install
+          command: composer install --quiet
+      - run:
+          name: Check WordPress
+          command: |
+              cd wordpress
+              ls -la
+      - run:
+          name: Install WordPress
+          command: |
+              cd wordpress
+              bash ../config/setup.sh
+

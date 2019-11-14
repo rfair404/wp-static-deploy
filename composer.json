@@ -1,0 +1,30 @@
+{
+    "name": "rfair404/wp-static-deploy",
+    "description": "A POC showing deploying a 100% static / headless WordPress based website",
+    "type": "project",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Russell Fair",
+            "email": "rfair404@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        }
+    ],
+    "require": {
+        "johnpbloch/wordpress-core-installer": "1.0.2",
+        "johnpbloch/wordpress": "5.3",
+        "wpackagist-plugin/static-html-output-plugin": "6.6.6",
+        "wpackagist-plugin/wp-githuber-md": "1.11.9"
+    },
+    "extra": {
+        "wordpress-install-dir": "wordpress",
+        "installer-paths": {
+            "wordpress/wp-content/plugins/{$name}/": ["type:wordpress-plugin"]
+        }
+    }
+}

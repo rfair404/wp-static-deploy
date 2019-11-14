@@ -1,0 +1,7 @@
+# WordPress specific
+wordpress
+
+# Composer files
+vendor
+
+.env
