@@ -45,8 +45,8 @@ generate_wp2static() {
 }
 
 install_wp
-#activate_plugins
-#delete_posts
-#create_homepage
-#configure_wp2static
+activate_plugins
+delete_posts
+create_homepage
+configure_wp2static
 #generate_wp2static
