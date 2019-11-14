@@ -55,5 +55,5 @@ jobs:
           name: Install WordPress
           command: |
               cd wordpress
-              sh ../config/setup.sh
+              bash ../config/setup.sh
 
