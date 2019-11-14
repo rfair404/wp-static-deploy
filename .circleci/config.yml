@@ -41,5 +41,12 @@ jobs:
           name: Composer install
           command: composer update
       - run:
+          name: Check WordPress
+          command: |
+              cd wordpress
+              ls -la
+
+      - run:
           name: Install WordPress
-          command: cd wordpress && bash ../config/setup.sh
+          command: bash ../config/setup.sh
+
