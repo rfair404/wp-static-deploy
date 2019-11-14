@@ -49,5 +49,7 @@ jobs:
           name: Install WordPress
           command: |
               cd wordpress
-              bash ../config/setup.sh
+              wp config create --dbname=$WP_DB_NAME --dbuser=$WP_DB_USER --dbpass=$WP_DB_PASS --dbhost=$WP_DB_HOST --allow-root
+
+#              bash ../config/setup.sh
 
