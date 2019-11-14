@@ -30,9 +30,9 @@ jobs:
       - run:
           name: Install MySQL CLI
           command: |
-          echo "memory_limit = 512M" | sudo -E tee --append /usr/local/etc/php/conf.d/docker-php-memory.ini
-          sudo apt install -y mariadb-client wget curl
-          sudo docker-php-ext-install mysqli
+            echo "memory_limit = 512M" | sudo -E tee --append /usr/local/etc/php/conf.d/docker-php-memory.ini
+            sudo apt install -y mariadb-client wget curl
+            sudo docker-php-ext-install mysqli
       - run:
           name: Create DB for WordPress
           command: |
