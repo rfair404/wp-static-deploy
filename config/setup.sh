@@ -3,15 +3,6 @@ set -o allexport
 [[ -f ../config/.env ]] && source ../config/.env
 set +o allexport
 
-echo $WP_DB_NAME
-echo $WP_DB_USER
-echo $WP_DB_PASS
-echo $WP_DB_HOST
-echo $WP_URL
-echo $WP_TITLE
-echo $ADMIN_USER
-echo $GH_TOKEN
-
 install_wp() {
     wp config create --dbname=$WP_DB_NAME --dbuser=$WP_DB_USER --dbpass=$WP_DB_PASS --dbhost=$WP_DB_HOST --allow-root
     wp db reset --allow-root --yes
@@ -59,12 +50,3 @@ delete_posts
 create_homepage
 configure_wp2static
 generate_wp2static
-
-echo $WP_DB_NAME
-echo $WP_DB_USER
-echo $WP_DB_PASS
-echo $WP_DB_HOST
-echo $WP_URL
-echo $WP_TITLE
-echo $ADMIN_USER
-echo $GH_TOKEN
