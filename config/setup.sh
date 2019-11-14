@@ -21,14 +21,14 @@ delete_posts() {
 }
 
 create_homepage() {
-    HOME_PAGE_ID=$(wp post create --post_author=$RFAIR_USER --post_date=2019-11-13 --post_title="Welcome to WP Static"  --post_status=publish --post_type=page --comment_status=closed --post_modified=2019-11-13 --porcelain --allow-root ./config/homepage.md)
+    HOME_PAGE_ID=$(wp post create --post_author=$RFAIR_USER --post_date=2019-11-13 --post_title="Welcome to WP Static"  --post_status=publish --post_type=page --comment_status=closed --post_modified=2019-11-13 --porcelain --allow-root ../config/homepage.md)
     wp option set show_on_front page --allow-root
     wp option set page_on_front $HOME_PAGE_ID --allow-root
     wp post meta update $HOME_PAGE_ID _is_githuber_markdown 1 --allow-root
 }
 
 configure_wp2static() {
-#    wp option update wp2static-options $(wp eval-file ./config/wp2static.php --allow-root) --allow-root
+#    wp option update wp2static-options $(wp eval-file ../config/wp2static.php --allow-root) --allow-root
     wp wp2static options set targetFolder /var/www/html/static-cli --allow-root
     wp wp2static options set selected_deployment_option github --allow-root
     wp wp2static options set baseUrl https://rfair404.github.io/wp-static-deploy --allow-root
