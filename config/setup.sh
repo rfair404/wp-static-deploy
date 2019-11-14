@@ -4,7 +4,7 @@ set -o allexport
 set +o allexport
 
 install_wp() {
-#    wp config create --dbname=$WP_DB_NAME --dbuser=$WP_DB_USER --dbpass=$WP_DB_PASS --dbhost=$WP_DB_HOST --allow-root
+    wp config create --dbname=$WP_DB_NAME --dbuser=$WP_DB_USER --dbpass=$WP_DB_PASS --dbhost=$WP_DB_HOST --allow-root
     wp db reset --allow-root --yes
     wp core install --url=$WP_URL --title="$WP_TITLE" --admin_user=$ADMIN_USER --admin_email=admin@example.com --admin_password=password --skip-email --allow-root
     RFAIR_USER=$(wp user create rfair404 rfair404@gmail.com --role=author --first_name="Russell" --last_name="Fair" --porcelain --allow-root)
