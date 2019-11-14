@@ -51,6 +51,6 @@ jobs:
               cd wordpress
               wp config create --dbname=$WP_DB_NAME --dbuser=$WP_DB_USER --dbpass=$WP_DB_PASS --dbhost=$WP_DB_HOST --allow-root
               wp db reset --allow-root --yes
-              wp core install --url=$WP_URL --title="$WP_TITLE" --admin_user=$ADMIN_USER --admin_email=admin@example.com --admin_password=password --skip-email --allow-root
+              wp core install --url="$WP_URL" --title="$WP_TITLE" --admin_user="$ADMIN_USER" --admin_email=admin@example.com --admin_password=password --skip-email --allow-root
 #              bash ../config/setup.sh
 
