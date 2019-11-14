@@ -45,7 +45,6 @@ jobs:
           command: |
               cd wordpress
               ls -la
-
       - run:
           name: Install WordPress
           command: bash ../config/setup.sh
