@@ -66,6 +66,8 @@ extract_static_files() {
     ls -la wp-content/uploads
     FILES=$(cat wp-content/uploads/WP2STATIC-CURRENT-ARCHIVE.txt)
     echo $FILES
+    ls -la static-site
+    ls -la $FILES
     cp -R $FILES* static-site
 #    cd $FILES
     ls -la static-site
@@ -77,6 +79,7 @@ commit() {
     git commit -m "deploy"
     git push origin gh-pages
 }
+
 install_wp
 activate_plugins
 delete_posts
