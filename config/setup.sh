@@ -13,7 +13,7 @@ install_wp() {
 
 activate_plugins() {
     wp plugin activate static-html-output-plugin --allow-root
-#    wp plugin activate wp-githuber-md --allow-root
+    wp plugin activate wp-githuber-md --allow-root
 }
 
 delete_posts() {
@@ -30,25 +30,59 @@ create_homepage() {
 configure_wp2static() {
 #    wp option update wp2static-options $(wp eval-file ../config/wp2static.php --allow-root) --allow-root
     wp wp2static options set debug_mode 1 --allow-root
-    wp wp2static options set detection_leftl homepage --allow-root
-    wp wp2static options set targetFolder /var/www/html/static-cli --allow-root
-    wp wp2static options set selected_deployment_option github --allow-root
+    wp wp2static options set detection_level homepage --allow-root
+    wp wp2static options set selected_deployment_option zip --allow-root
+
+
+#    wp wp2static options set targetFolder /var/www/html/static-cli --allow-root
+#    wp wp2static options set selected_deployment_option github --allow-root
     wp wp2static options set baseUrl https://rfair404.github.io/wp-static-deploy --allow-root
-    wp wp2static options set baseUrl-github https://rfair404.github.io/wp-static-deploy --allow-root
-    wp wp2static options set ghBranch gh-pages --allow-root
-    wp wp2static options set ghToken $GH_TOKEN --allow-root
-    wp wp2static options set ghRepo rfair404/wp-static-deploy --allow-root
-    wp wp2static options set ghCommitMessage "site update" --allow-root
+    wp wp2static options set baseUrl-zip https://rfair404.github.io/wp-static-deploy --allow-root
+#    wp wp2static options set baseUrl-github https://rfair404.github.io/wp-static-deploy --allow-root
+#    wp wp2static options set ghBranch gh-pages --allow-root
+#    wp wp2static options set ghToken $GH_TOKEN --allow-root
+#    wp wp2static options set ghRepo rfair404/wp-static-deploy --allow-root
+#    wp wp2static options set ghCommitMessage "site update" --allow-root
+}
+
+crawl_site() {
+    echo "crawling site"
+    wp wp2static generate --allow-root
 }
 
 generate_wp2static() {
-    wp wp2static generate --allow-root
+    echo "deploying site"
     wp wp2static deploy --allow-root
 }
 
+setup_git() {
+    rm -rf static-site
+    git clone git@github.com:rfair404/wp-static-deploy.git static-site
+    cd static-site
+    git checkout gh-pages
+    cd ..
+}
+extract_static_files() {
+    ls -la
+    FILES=$(cat wp-content/uploads/WP2STATIC-CURRENT-ARCHIVE.txt)
+    cp -R $FILES/* static-site
+#    cd $FILES
+    ls -la static-site
+}
+
+commit() {
+    cd static-site
+    git add .
+    git commit -m "deploy"
+    git push origin gh-pages
+}
 install_wp
 activate_plugins
 delete_posts
 create_homepage
 configure_wp2static
-#generate_wp2static
+crawl_site
+generate_wp2static
+setup_git
+extract_static_files
+commit
