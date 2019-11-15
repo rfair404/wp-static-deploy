@@ -18,7 +18,7 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - eb:0f:1a:14:82:dd:37:b5:93:4e:a8:d6:75:d6:e4:59
+            - 0a:87:fe:d5:d9:e0:cd:d1:0c:c1:37:37:7c:86:64:e7
       - checkout
       - run:
           name: Waiting for MySQL to be ready
