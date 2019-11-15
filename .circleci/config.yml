@@ -16,6 +16,9 @@ jobs:
           MYSQL_PASSWORD: password
 
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - eb:0f:1a:14:82:dd:37:b5:93:4e:a8:d6:75:d6:e4:59
       - checkout
       - run:
           name: Waiting for MySQL to be ready
