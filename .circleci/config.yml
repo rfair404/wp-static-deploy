@@ -49,6 +49,10 @@ jobs:
       - run:
           name: Composer install
           command: composer install --quiet
+       - run:
+          name: Start PHP-FPM
+           shell: /bin/bash
+           command: service php-fpm restart
       - run:
           name: Check WordPress
           command: |
