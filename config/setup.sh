@@ -65,7 +65,7 @@ setup_git() {
 extract_static_files() {
     ls -la
     FILES=$(cat wp-content/uploads/WP2STATIC-CURRENT-ARCHIVE.txt)
-    cp -R $FILES/* static-site
+    cp -R wp-content/uploads/$FILES/* static-site
 #    cd $FILES
     ls -la static-site
 }
